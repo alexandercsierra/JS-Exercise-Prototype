@@ -125,10 +125,14 @@ Baby.prototype.play = function (){
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+
+  1. Global Binding - this will refer back to the parent object of everything, meaning the window or console itself.
+
+  2. implicit binding - this will refer back to the object within which the "this" keyword is used
+
+  3. new binding - this will refer back to the new object that is created by the constructor function
+
+  4. explicit binding - this will refer back to what is passed in the parenthesis but for a specific method, for ex: dog.speak.call(cat);
 */
 
 
