@@ -52,7 +52,7 @@ Person.prototype.eat = function(someFood) {
 };
 
 Person.prototype.poop = function() {
-  return (this.stomach = []);
+  this.stomach = [];
 };
 
 Person.prototype.toString = function() {
@@ -108,18 +108,31 @@ Car.prototype.drive = function (distance) {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
+// Baby.prototype = Object.create(Person.prototype);
+// function Baby(name, age, favoriteToy) {
+//   this.name = name;
+//   this.age = age;
+//   this.favoriteToy = favoriteToy;
+// }
+
+// //this didn't work when I omitted this.name = name and this.age = age. Shouldn't it pull that from the person prototype? Not sure why I had to write it here also.
+
+// Baby.prototype.play = function (){
+//   return "Playing with " + this.favoriteToy;
+// }
+
 Baby.prototype = Object.create(Person.prototype);
 function Baby(name, age, favoriteToy) {
-  this.name = name;
-  this.age = age;
+  Person.call(this, name, age)
   this.favoriteToy = favoriteToy;
 }
-
-//this didn't work when I omitted this.name = name and this.age = age. Shouldn't it pull that from the person prototype? Not sure why I had to write it here also.
 
 Baby.prototype.play = function (){
   return "Playing with " + this.favoriteToy;
 }
+
+
+
 
 /* 
   TASK 4
